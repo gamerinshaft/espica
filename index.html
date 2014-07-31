@@ -1,0 +1,74 @@
+<html>
+<head>
+<meta charset="utf-8">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+</head>
+<body style="background-color: black; padding: 0; margin: 0; width: 100%; height: 100%;">
+<div id="hoge" style="position: absolute; width: 100%; top: 0; bottom: 0;  z-index: 5; overflow: hidden">
+</div>
+<div id="fuga" style="position: absolute; color: white; z-index: 3; font-size: 74px; font-family: cursive;">
+  <span style="color: red;">妄</span>想科学実験室
+  <!-- <h1 >Welcome my homepage!</h1>
+  <p>ようこそ、たにしのホームページへ、<br>このサイトは、僕の日常生活のあれこれをたんたんと吐き出してくチラ裏的ホームページです。</p>
+  <p>ようこそ、たにしのホームページへ、<br>このサイトは、僕の日常生活のあれこれをたんたんと吐き出してくチラ裏的ホームページです。</p>
+  <p>ようこそ、たにしのホームページへ、<br>このサイトは、僕の日常生活のあれこれをたんたんと吐き出してくチラ裏的ホームページです。</p>
+  <p>ようこそ、たにしのホームページへ、<br>このサイトは、僕の日常生活のあれこれをたんたんと吐き出してくチラ裏的ホームページです。</p>
+  <p>ようこそ、たにしのホームページへ、<br>このサイトは、僕の日常生活のあれこれをたんたんと吐き出してくチラ裏的ホームページです。</p>
+  <p>ようこそ、たにしのホームページへ、<br>このサイトは、僕の日常生活のあれこれをたんたんと吐き出してくチラ裏的ホームページです。</p>
+  <p>ようこそ、たにしのホームページへ、<br>このサイトは、僕の日常生活のあれこれをたんたんと吐き出してくチラ裏的ホームページです。</p>
+  <p>ようこそ、たにしのホームページへ、<br>このサイトは、僕の日常生活のあれこれをたんたんと吐き出してくチラ裏的ホームページです。</p>
+  <p>ようこそ、たにしのホームページへ、<br>このサイトは、僕の日常生活のあれこれをたんたんと吐き出してくチラ裏的ホームページです。</p>
+  <p>ようこそ、たにしのホームページへ、<br>このサイトは、僕の日常生活のあれこれをたんたんと吐き出してくチラ裏的ホームページです。</p>
+  <p>ようこそ、たにしのホームページへ、<br>このサイトは、僕の日常生活のあれこれをたんたんと吐き出してくチラ裏的ホームページです。</p>
+  <p>ようこそ、たにしのホームページへ、<br>このサイトは、僕の日常生活のあれこれをたんたんと吐き出してくチラ裏的ホームページです。</p>
+  <p>ようこそ、たにしのホームページへ、<br>このサイトは、僕の日常生活のあれこれをたんたんと吐き出してくチラ裏的ホームページです。</p>
+  <p>ようこそ、たにしのホームページへ、<br>このサイトは、僕の日常生活のあれこれをたんたんと吐き出してくチラ裏的ホームページです。</p>
+  <p>ようこそ、たにしのホームページへ、<br>このサイトは、僕の日常生活のあれこれをたんたんと吐き出してくチラ裏的ホームページです。</p>
+  <p>ようこそ、たにしのホームページへ、<br>このサイトは、僕の日常生活のあれこれをたんたんと吐き出してくチラ裏的ホームページです。</p>
+  <p>ようこそ、たにしのホームページへ、<br>このサイトは、僕の日常生活のあれこれをたんたんと吐き出してくチラ裏的ホームページです。</p>
+  <p>ようこそ、たにしのホームページへ、<br>このサイトは、僕の日常生活のあれこれをたんたんと吐き出してくチラ裏的ホームページです。</p>
+  <p>ようこそ、たにしのホームページへ、<br>このサイトは、僕の日常生活のあれこれをたんたんと吐き出してくチラ裏的ホームページです。</p> -->
+</div>
+<div style= "position: fixed; width: 100%;">
+  <div style="position: absolute; width: 100%; height: 100%; background-color: rgb(56, 68, 201); z-index: 2; opacity: 0.2;"></div>
+  <video src="./number10.mp4" autoplay loop style="width:100%; height: 100%;"></video>
+</div>
+
+
+<script>
+$(function(){
+  var down = function(){
+    $('#hoge').css({'background-image' : 'url("./horizontal-1.png")'});
+    $('#hoge').stop().animate({top:'+=' + '20' + 'px',duration: 1000},{complete: function(){$('#hoge').css({'background-image' : 'none'})}});
+  }
+  var up = function(){
+    $('#hoge').css({'background-image' : 'url("./horizontal-1.png")'});
+    $('#hoge').stop().animate({top:'-=' + '20' + 'px',duration: 1000},{complete: function(){$('#hoge').css({'background-image' : 'none'})}});
+  }
+  var center = function(){
+    var winWidth = $(window).width();
+    var winHeight = $(window).height();
+    var selfWidth = $('#fuga').width();
+    var selfHeight = $('#fuga').height();
+    $('#fuga').css({
+      'top': (winHeight - selfHeight)/2,
+      'left': (winWidth - selfWidth)/2
+    });
+  }
+  center();
+  var state = 'down'
+  setInterval(function(){
+    if(state == 'down'){
+      up();
+      state = 'up';
+    }else{
+      down();
+      state = 'down';
+    }
+    console.log(state);
+  },2000);
+});
+</script>
+
+</body>
+</html>
