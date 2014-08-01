@@ -12,7 +12,7 @@ close(IN);
 $count++;
 
 # カウントファイルに書き込み
-open(OUT, "> counter.txt");
+open(OUT, "> ./cgi/counter.txt");
 print OUT $count;
 close(OUT);
 
