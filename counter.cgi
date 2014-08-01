@@ -16,10 +16,22 @@ open(OUT, "> counter.txt");
 print OUT $count;
 close(OUT);
 
+$inputfile="index-content.html";
+
+print <html>;
+
+
+open (FILE, $inputfile) or die "$!";
+while (<FILE>) {
+    print $_;
+}
+close (FILE);
 print <<EOL;
-<html>
-<body>
-<p>あなたは $count 人目のお客様です</p>
+<script>
+\$(function(){
+  \$('#counter').text($count + "人目");
+});
+</script>
 </body>
 </html>
 EOL
