@@ -4,7 +4,7 @@ var titleCenter = function(){
   var selfWidth = $('#topTitle').width();
   var selfHeight = $('#topTitle').height();
   $('#topTitle').css({
-    'top': (winHeight - selfHeight)/2,
+    'top': (winHeight - selfHeight * 1.8)/2,
     'left': (winWidth - selfWidth)/2
   });
   counterPosition(winHeight/2 + selfHeight/2);
