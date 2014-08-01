@@ -7,17 +7,20 @@
 <body>
 
 <!-- actions -->
-<div id="flicker"></div>
-<div id="counter"></div>
-<div id="topTitle"><span>妄</span>想科学研究室</div>
-<div id="access">Enter</div>
 
 <!-- main -->
-<div class="container">
+<div class="topContainer">
+  <div id="flicker"></div>
+  <div id="counter"></div>
+  <div id="topTitle"><span>妄</span>想科学研究室</div>
+  <div id="access">Enter</div>
   <div class="content"></div>
   <video src="./img/number10.mp4" autoplay loop></video>
 </div>
 
+<div id="popContent" class="none">
+  <h1>welcome!</h1>
+</div>
 
 <script src="./js/flicker.js"></script>
 <script src="./js/center.js"></script>
@@ -29,10 +32,33 @@ $(function(){
   $(window).on('load resize', function(){
     counterPosition();
     titleCenter();
+    if($(window).width() < $(window).height()*1.8){
+      $('.topContainer').find('video').css({
+        'height': '100%',
+        'width' : 'auto'
+      });
+    }else{
+      $('.topContainer').find('video').css({
+        'height': 'auto',
+        'width' : '100%'
+      });
+    }
   });
-  $('#counter').delay(350).animate({opacity:'1'});
-  $('#topTitle').delay(350).animate({opacity:'1'});
-  $('#access').delay(350).animate({opacity:'1'});
+  $('#counter').delay(450).animate({opacity:'1'});
+  $('#topTitle').delay(450).animate({opacity:'1'});
+  $('#access').delay(450).animate({opacity:'1'});
+
+  $('#popContent').css({'bottom': -$(window).height()});
+  $('#access').on('click',function(){
+    $('#popContent').removeClass('none');
+    $('#popContent').animate(
+      {'bottom': '0'},
+      {complete: function(){
+        $('.topContainer').addClass('none');
+        $('#popContent').css({'z-index':'1'});
+      }
+    });
+  });
 });
 </script>
 
