@@ -4,7 +4,7 @@
 print "Content-type: text/html; charset=utf-8\n\n";
 
 # カウントファイルから読み込み
-open(IN, "counter.txt");
+open(IN, "./cgi/counter.txt");
 $count = <IN>;
 close(IN);
 

@@ -1,30 +1,31 @@
 <head>
+<link href="./css/index.css" rel="stylesheet">
 <meta charset="utf-8">
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 </head>
+<body>
 
-<body style="background-color: black; padding: 0; margin: 0; width: 100%; height: 100%;">
-<div id="hoge" style="position: absolute; width: 100%; top: 0; bottom: 0;  z-index: 5; ">
-</div>
-<div id="counter" style="opacity: 0; z-index: 3; position: absolute; color: white; font-family: cursive; font-weight: bold; font-size: 40px"></div>
-<div id="fuga" style="opacity: 0; position: absolute; color: white; z-index: 3; font-size: 74px; font-family: cursive;">
-  <span style="color: red;">妄</span>想科学研究室
-</div>
-<div style= "position: fixed; width: 100%;">
-  <div style="position: absolute; width: 100%; height: 100%; background-color: rgb(56, 68, 201); z-index: 2; opacity: 0.2;"></div>
-  <video src="./number10.mp4" autoplay loop style="width:100%; height: 100%;"></video>
+<!-- actions -->
+<div id="flicker"></div>
+<div id="counter"></div>
+<div id="topTitle"><span>妄</span>想科学研究室</div>
+
+<!-- main -->
+<div class="container">
+  <div class="content"></div>
+  <video src="./img/number10.mp4" autoplay loop></video>
 </div>
 
 
 <script>
 $(function(){
   var down = function(){
-    $('#hoge').css({'background-image' : 'url("./horizontal-1.png")'});
-    $('#hoge').stop().animate({top:'+=' + '20' + 'px',duration: 1000},{complete: function(){$('#hoge').css({'background-image' : 'none'})}});
+    $('#flicker').css({'background-image' : 'url("./img/horizontal-1.png")'});
+    $('#flicker').stop().animate({top:'+=' + '20' + 'px',duration: 1000},{complete: function(){$('#flicker').css({'background-image' : 'none'})}});
   }
   var up = function(){
-    $('#hoge').css({'background-image' : 'url("./horizontal-1.png")'});
-    $('#hoge').stop().animate({top:'-=' + '20' + 'px',duration: 1000},{complete: function(){$('#hoge').css({'background-image' : 'none'})}});
+    $('#flicker').css({'background-image' : 'url("./horizontal-1.png")'});
+    $('#flicker').stop().animate({top:'-=' + '20' + 'px',duration: 1000},{complete: function(){$('#flicker').css({'background-image' : 'none'})}});
   }
   var counterPosition = function(){
     var winWidth = $(window).width();
@@ -39,9 +40,9 @@ $(function(){
   var titleCenter = function(){
     var winWidth = $(window).width();
     var winHeight = $(window).height();
-    var selfWidth = $('#fuga').width();
-    var selfHeight = $('#fuga').height();
-    $('#fuga').css({
+    var selfWidth = $('#topTitle').width();
+    var selfHeight = $('#topTitle').height();
+    $('#topTitle').css({
       'top': (winHeight - selfHeight)/2,
       'left': (winWidth - selfWidth)/2
     });
@@ -64,7 +65,7 @@ $(function(){
   },2000);
 
   $('#counter').delay(250).animate({opacity:'1'});
-  $('#fuga').delay(250).animate({opacity:'1'});
+  $('#topTitle').delay(250).animate({opacity:'1'});
 
 });
 </script>
