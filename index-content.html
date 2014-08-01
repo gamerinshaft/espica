@@ -4,31 +4,11 @@
 </head>
 
 <body style="background-color: black; padding: 0; margin: 0; width: 100%; height: 100%;">
-<div id="hoge" style="position: absolute; width: 100%; top: 0; bottom: 0;  z-index: 5; overflow: hidden">
+<div id="hoge" style="position: absolute; width: 100%; top: 0; bottom: 0;  z-index: 5; ">
 </div>
-<div id="counter"></div>
-<div id="fuga" style="position: absolute; color: white; z-index: 3; font-size: 74px; font-family: cursive;">
-  <span style="color: red;">妄</span>想科学実験室
-  <!-- <h1 >Welcome my homepage!</h1>
-  <p>ようこそ、たにしのホームページへ、<br>このサイトは、僕の日常生活のあれこれをたんたんと吐き出してくチラ裏的ホームページです。</p>
-  <p>ようこそ、たにしのホームページへ、<br>このサイトは、僕の日常生活のあれこれをたんたんと吐き出してくチラ裏的ホームページです。</p>
-  <p>ようこそ、たにしのホームページへ、<br>このサイトは、僕の日常生活のあれこれをたんたんと吐き出してくチラ裏的ホームページです。</p>
-  <p>ようこそ、たにしのホームページへ、<br>このサイトは、僕の日常生活のあれこれをたんたんと吐き出してくチラ裏的ホームページです。</p>
-  <p>ようこそ、たにしのホームページへ、<br>このサイトは、僕の日常生活のあれこれをたんたんと吐き出してくチラ裏的ホームページです。</p>
-  <p>ようこそ、たにしのホームページへ、<br>このサイトは、僕の日常生活のあれこれをたんたんと吐き出してくチラ裏的ホームページです。</p>
-  <p>ようこそ、たにしのホームページへ、<br>このサイトは、僕の日常生活のあれこれをたんたんと吐き出してくチラ裏的ホームページです。</p>
-  <p>ようこそ、たにしのホームページへ、<br>このサイトは、僕の日常生活のあれこれをたんたんと吐き出してくチラ裏的ホームページです。</p>
-  <p>ようこそ、たにしのホームページへ、<br>このサイトは、僕の日常生活のあれこれをたんたんと吐き出してくチラ裏的ホームページです。</p>
-  <p>ようこそ、たにしのホームページへ、<br>このサイトは、僕の日常生活のあれこれをたんたんと吐き出してくチラ裏的ホームページです。</p>
-  <p>ようこそ、たにしのホームページへ、<br>このサイトは、僕の日常生活のあれこれをたんたんと吐き出してくチラ裏的ホームページです。</p>
-  <p>ようこそ、たにしのホームページへ、<br>このサイトは、僕の日常生活のあれこれをたんたんと吐き出してくチラ裏的ホームページです。</p>
-  <p>ようこそ、たにしのホームページへ、<br>このサイトは、僕の日常生活のあれこれをたんたんと吐き出してくチラ裏的ホームページです。</p>
-  <p>ようこそ、たにしのホームページへ、<br>このサイトは、僕の日常生活のあれこれをたんたんと吐き出してくチラ裏的ホームページです。</p>
-  <p>ようこそ、たにしのホームページへ、<br>このサイトは、僕の日常生活のあれこれをたんたんと吐き出してくチラ裏的ホームページです。</p>
-  <p>ようこそ、たにしのホームページへ、<br>このサイトは、僕の日常生活のあれこれをたんたんと吐き出してくチラ裏的ホームページです。</p>
-  <p>ようこそ、たにしのホームページへ、<br>このサイトは、僕の日常生活のあれこれをたんたんと吐き出してくチラ裏的ホームページです。</p>
-  <p>ようこそ、たにしのホームページへ、<br>このサイトは、僕の日常生活のあれこれをたんたんと吐き出してくチラ裏的ホームページです。</p>
-  <p>ようこそ、たにしのホームページへ、<br>このサイトは、僕の日常生活のあれこれをたんたんと吐き出してくチラ裏的ホームページです。</p> -->
+<div id="counter" style="opacity: 0; z-index: 3; position: absolute; color: white; font-family: cursive; font-weight: bold; font-size: 40px"></div>
+<div id="fuga" style="opacity: 0; position: absolute; color: white; z-index: 3; font-size: 74px; font-family: cursive;">
+  <span style="color: red;">妄</span>想科学研究室
 </div>
 <div style= "position: fixed; width: 100%;">
   <div style="position: absolute; width: 100%; height: 100%; background-color: rgb(56, 68, 201); z-index: 2; opacity: 0.2;"></div>
@@ -46,7 +26,17 @@ $(function(){
     $('#hoge').css({'background-image' : 'url("./horizontal-1.png")'});
     $('#hoge').stop().animate({top:'-=' + '20' + 'px',duration: 1000},{complete: function(){$('#hoge').css({'background-image' : 'none'})}});
   }
-  var center = function(){
+  var counterPosition = function(){
+    var winWidth = $(window).width();
+    var winHeight = $(window).height();
+    var selfWidth = $('#counter').width();
+    var selfHeight = $('#counter').height();
+    $('#counter').css({
+      'top': (winHeight + selfHeight)/2,
+      'left': (winWidth - selfWidth)/2
+    });
+  }
+  var titleCenter = function(){
     var winWidth = $(window).width();
     var winHeight = $(window).height();
     var selfWidth = $('#fuga').width();
@@ -56,9 +46,10 @@ $(function(){
       'left': (winWidth - selfWidth)/2
     });
   }
-  center();
+  titleCenter();
   $(window).on('load resize', function(){
-    center();
+    counterPosition();
+    titleCenter();
   });
 
   var state = 'down'
@@ -70,8 +61,11 @@ $(function(){
       down();
       state = 'down';
     }
-    console.log(state);
   },2000);
+
+  $('#counter').delay(250).animate({opacity:'1'});
+  $('#fuga').delay(250).animate({opacity:'1'});
+
 });
 </script>
 

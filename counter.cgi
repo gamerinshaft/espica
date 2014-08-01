@@ -29,7 +29,7 @@ close (FILE);
 print <<EOL;
 <script>
 \$(function(){
-  \$('#counter').text($count + "人目");
+  \$('#counter').html("000<span style='color: red'>" + $count + "</span>人目");
 });
 </script>
 </body>
